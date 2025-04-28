@@ -1,1 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Francisco">
+    <meta name="description" content="Francisco's immersive and creative web design portfolio showcasing innovative projects.">
+    <title>Francisco | Visionary Web Designer & Developer</title>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #181818;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(31,31,31,0.9), rgba(45,45,45,0.8)),
+                        url('your-header-image.jpg') no-repeat center center/cover;
+            color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            z-index: 100;
+            transition: background 1s ease;
+        }
+
+        header h1 {
+            font-size: 7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: fadeInHeader 2s forwards;
+        }
+
+        header p {
+            font-size: 1.8em;
+            opacity: 0;
+            transform: translateY(100px);
+            animation: fadeInHeader 2s 1s forwards;
+        }
+
+        @keyframes fadeInHeader {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            animation: fadeInNav 2s 1s forwards;
+        }
+
+        @keyframes fadeInNav {
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 0 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+            border-bottom: 2px solid #FFD700;
+            transform: scale(1.1);
+        }
+
+        /* About Me Section */
+        section#about {
+            background: linear-gradient(135deg, rgba(31,31,31,0.9), rgba(0,0,0,0.5)),
+                        url('your-about-image.jpg') no-repeat center center/cover;
+            padding: 120px 50px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section#about h2 {
+            font-size: 5em;
+            margin-bottom: 50px;
+            color: #FFD700;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            opacity: 0;
+            animation: slideInAbout 1.5s forwards;
+        }
+
+        @keyframes slideInAbout {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section#about p {
+            font-size: 1.4em;
+            color: #cccccc;
+            line-height: 1.8;
+            margin: 0 auto 50px auto;
+            max-width: 1000px;
+            position: relative;
+            opacity: 0;
+            animation: slideInAbout 1.5s 1s forwards;
+        }
+
+        /* Portfolio Section */
+        section#portfolio {
+            background: #222222;
+            padding: 100px 20px;
+            text-align: center;
+            color: #FFF;
+            position: relative;
+        }
+
+        section#portfolio h2 {
+            font-size: 4.5em;
+            margin-bottom: 50px;
+            color: #FFD700;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            opacity: 0;
+            animation: slideInPortfolio 1.5s 1s forwards;
+        }
+
+        @keyframes slideInPortfolio {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 50px 20px;
+            opacity: 0;
+            animation: fadeInGrid 2s 1.5s forwards;
+        }
+
+        @keyframes fadeInGrid {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .portfolio-item {
+            background: #2c2c2c;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item h3 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #fff;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInText 1s 1.5s forwards;
+        }
+
+        @keyframes fadeInText {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .portfolio-item p {
+            color: #cccccc;
+            font-size: 1.1em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        section#contact {
+            background-color: #202020;
+            padding: 100px 30px;
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            animation: fadeInContact 2s 1s forwards;
+        }
+
+        @keyframes fadeInContact {
+            to {
+                opacity: 1;
+            }
+        }
+
+        section#contact h2 {
+            font-size: 4em;
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+        }
+
+        section#contact p {
+            font-size: 1.4em;
+            color: #AAAAAA;
+            margin-bottom: 30px;
+        }
+
+        section#contact a {
+            background-color: #FFD700;
+            color: #212121;
+            padding: 18px 40px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        section#contact a:hover {
+            background-color: #212121;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.3em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section#about h2 {
+                font-size: 3.5em;
+            }
+
+            section#portfolio h2 {
+                font-size: 3.5em;
+            }
+
+            section#contact h2 {
+                font-size: 3.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 3.5em;
+            }
+
+            nav a {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Francisco</h1>
+        <p>Visionary Web Designer & Developer</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I’m Francisco, a passionate and visionary web designer & developer. My work blends design, technology, and creativity to craft stunning websites and web applications. I focus on providing seamless experiences and efficient coding practices that lead to extraordinary digital results.</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>My Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Innovative website design for an e-commerce platform with responsive features.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Creative mobile app design focused on smooth user experience and modern UI.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>UI/UX for a social media platform, with intuitive navigation and sleek design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Looking to collaborate? Reach out and let's create something amazing together.</p>
+        <a href="mailto:francisco@example.com">Get In Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Francisco. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
 
